@@ -37,7 +37,7 @@ class AuthenticationController extends Controller
                 'status'=>true,
                 'messsage'=>'User Created Successfully',
                 'token'=>$token
-            ])
+            ]);
         }
         
     }
