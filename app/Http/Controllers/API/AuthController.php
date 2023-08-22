@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -59,11 +58,11 @@ class AuthController extends Controller
             $user = Auth::user();
             
             // Return token and user info
-            // $token = $user->createToken('authToken')->plainTextToken;
+            $token = $user->createToken('authToken')->plainTextToken;
             return response()->json([
                 'status'=>true,
                 'user' => $user,
-                // 'token' => $token,
+                'token' => $token,
                 'message'=>'User Logged in Successfully',
             ]);
         }
