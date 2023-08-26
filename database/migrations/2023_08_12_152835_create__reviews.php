@@ -7,27 +7,23 @@ use App\Enums\Rating;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('Reviews', function (Blueprint $table) {
-            $table->id('ReviewID');
+            $table->id();
             $table->unsignedBigInteger('CustomerID')->nullable();
             $table->unsignedBigInteger('ItemID')->nullable();
-            $table->string('ItemAvailability')->default(Rating::None);
+            $table->string('Rating')->default(Rating::None);
             $table->string('Comment');
+            $table->timestamps();
 
-            $table->foreign('CustomerID')->references('CustomerID')->on('Customers')->nullable();
-            $table->foreign('ItemID')->references('ItemID')->on('MenuItems')->nullable();
+            $table->foreign('CustomerID')->references('id')->on('Customers')->nullable();
+            $table->foreign('ItemID')->references('id')->on('items')->nullable();
 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('Reviews');

@@ -12,15 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('MenuItems', function (Blueprint $table) {
-            $table->id('ItemID');
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('CategoryID')->nullable();
-            $table->string('ItemName');
-            $table->float('ItemPrice');
-            $table->string('ItemDescription');
+            $table->string('name');
+            $table->float('price');
+            $table->string('description');
             $table->string('ItemAvailability')->default(ItemAvailability::Available);
-            $table->string('ImageUrl');
-            $table->foreign('CategoryID')->references('CategoryID')->on('categories')->nullable();
+            $table->string('imageURL');
+            $table->foreign('CategoryID')->references('id')->on('categories')->nullable();
+            $table->timestamps();
+
         });
     }
 
