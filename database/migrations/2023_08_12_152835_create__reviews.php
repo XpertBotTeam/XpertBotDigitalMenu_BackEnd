@@ -10,7 +10,7 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('Reviews', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('CustomerID')->nullable();
             $table->unsignedBigInteger('ItemID')->nullable();
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Comment');
             $table->timestamps();
 
-            $table->foreign('CustomerID')->references('id')->on('Customers')->nullable();
+            $table->foreign('CustomerID')->references('id')->on('customers')->nullable();
             $table->foreign('ItemID')->references('id')->on('items')->nullable();
 
         });

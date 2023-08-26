@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('OrderItems', function (Blueprint $table) {
+        Schema::create('orderitems', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('OrderID')->nullable();
             $table->unsignedBigInteger('ItemID')->nullable();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->float('SubTotal');
             $table->timestamps();
 
-            $table->foreign('OrderID')->references('id')->on('Orders')->nullable();
+            $table->foreign('OrderID')->references('id')->on('orders')->nullable();
             $table->foreign('ItemID')->references('id')->on('items')->nullable();
         });
     }

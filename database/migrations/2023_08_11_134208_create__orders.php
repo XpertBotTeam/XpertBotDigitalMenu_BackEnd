@@ -20,14 +20,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Orders', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('CustomerID')->nullable();
             $table->string('status')->default(OrderStatus::Pending);
             $table->timestamp('OrderDate')->nullable();
             $table->string('OrderTotal')->nullable();
             $table->string('DeliveryInfo')->default(DeliveryStatus::Pending);
-            $table->foreign('CustomerID')->references('id')->on('Customers')->nullable();
+            $table->foreign('CustomerID')->references('id')->on('customers')->nullable();
             $table->timestamps();
 
         });
