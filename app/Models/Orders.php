@@ -11,6 +11,8 @@ use App\Models\Customer;
 class Orders extends Model
 {
     use HasFactory;
+    protected $table = 'orders';
+
     protected $fillable = [
         'status',
         'DeliveryInfo',
