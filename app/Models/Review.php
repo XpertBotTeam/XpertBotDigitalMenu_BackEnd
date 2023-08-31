@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+
+    protected $table = 'reviews';
+
     use HasFactory;
     protected $fillable = [
         'Comment',

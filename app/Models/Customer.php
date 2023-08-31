@@ -8,6 +8,8 @@ use App\Models\Orders;
 
 class Customer extends Model
 {
+    protected $table = 'customers';
+
     use HasFactory;
     protected $fillable = [
         'Fname',

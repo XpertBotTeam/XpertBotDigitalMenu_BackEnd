@@ -8,6 +8,8 @@ use App\Enums\ItemAvailability;
 
 class Item extends Model
 {
+    protected $table = 'items';
+
     use HasFactory;
     protected $fillable = [
         'name',
