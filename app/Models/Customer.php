@@ -8,7 +8,7 @@ use App\Models\Orders;
 
 class Customer extends Model
 {
-    protected $table = 'customers';
+    protected $table = 'Customers';
 
     use HasFactory;
     protected $fillable = [
