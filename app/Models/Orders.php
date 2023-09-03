@@ -10,7 +10,7 @@ use App\Models\Customer;
 
 class Orders extends Model
 {
-    protected $table = 'orders';
+
 
     use HasFactory;
     protected $table = 'orders';

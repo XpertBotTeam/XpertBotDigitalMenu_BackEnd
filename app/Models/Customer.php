@@ -8,7 +8,7 @@ use App\Models\Orders;
 
 class Customer extends Model
 {
-    protected $table = 'Customers';
+
 
     use HasFactory;
     protected $table = 'customers';
