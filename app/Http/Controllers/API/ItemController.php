@@ -42,7 +42,7 @@ class ItemController extends Controller
             'price'=>'required|numeric',
             'description'=>'required|string|max:400',
             'imageURL'=>'required|string',
-            'CategoryID'=>'required|exists:Categories,id',
+            'CategoryID'=>'required|exists:categories,id',
 
         ]);
 
