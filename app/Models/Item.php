@@ -25,7 +25,7 @@ class Item extends Model
     {
         parent::boot();
 
-        // Set the default status to 'Pending' when creating a new order
+        // Set the default status to 'Available' when creating a new order
         static::creating(function ($item) {
             $item->ItemAvailability = ItemAvailability::Available;
         });
