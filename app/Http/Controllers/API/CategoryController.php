@@ -11,8 +11,8 @@ class CategoryController extends Controller
 
     public function listAll()
     {
-        $Categories = Category::all();
-        return response()->json($Categories);
+        $Category = Category::all();
+        return response()->json($Category);
     }
     
     public function showCategory($id)
