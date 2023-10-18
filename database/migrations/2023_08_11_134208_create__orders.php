@@ -22,12 +22,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('CustomerID')->nullable();
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->string('status')->default(OrderStatus::Pending);
             $table->timestamp('OrderDate')->nullable();
             $table->string('OrderTotal')->nullable();
             $table->string('DeliveryInfo')->default(DeliveryStatus::Pending);
-            $table->foreign('CustomerID')->references('id')->on('customers')->nullable();
+            $table->foreign('UserID')->references('id')->on('users')->nullable();
             $table->timestamps();
 
         });

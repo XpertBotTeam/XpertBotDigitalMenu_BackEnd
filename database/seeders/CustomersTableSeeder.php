@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class CustomersTableSeeder extends Seeder
@@ -12,7 +12,7 @@ class CustomersTableSeeder extends Seeder
     public function run()
     {
         // Create some sample customers
-        Customer::create([
+        User::create([
             'Fname' => 'John',
             'Lname' => 'Doe',
             'email' => 'johndoe@example.com',
@@ -21,7 +21,7 @@ class CustomersTableSeeder extends Seeder
             'address' => '123 Main Street',
         ]);
 
-        Customer::create([
+        User::create([
             'Fname' => 'Jane',
             'Lname' => 'Smith',
             'email' => 'janesmith@example.com',

@@ -13,13 +13,13 @@ class OrdersTableSeeder extends Seeder
         Orders::create([
             'status' => 'Processing',
             'DeliveryInfo' => '123 Main Street, City, Country',
-            'CustomerID' => 1,
+            'UserID' => 1,
         ]);
 
         Orders::create([
             'status' => 'Shipped',
             'DeliveryInfo' => '456 Elm Street, Town, Country',
-            'CustomerID' => 2,
+            'UserID' => 2,
         ]);
 
         // Add more orders as needed

@@ -28,13 +28,34 @@ return [
     |
     */
 
+    
+    
     'disks' => [
 
+        'upload' => [
+            'disk' => 'app/public', // This should point to the correct disk configuration.
+            'directory' => 'images', // This should match the directory where you want to store images.
+        ],
+
+        'images' => [
+            'driver' => 'local',
+            'root' => public_path('app/public'), // Change this to your desired image directory
+        ],
+
+        'admin' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'), // Define the root path for the disk
+        ],
+        
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('app/public'),
             'throw' => false,
         ],
+        // 'local' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/public/images'),
+        // ],
 
         'public' => [
             'driver' => 'local',
@@ -43,6 +64,11 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+
+     
+        
+        
+        
 
         's3' => [
             'driver' => 's3',

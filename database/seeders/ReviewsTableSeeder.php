@@ -12,14 +12,14 @@ class ReviewsTableSeeder extends Seeder
         // Create some sample reviews
         Review::create([
             'Comment' => 'This is a great product!',
-            'CustomerID' => 1,
+            'UserID' => 1,
             'ItemID' => 1,
             'Rating' => 5,
         ]);
 
         Review::create([
             'Comment' => 'Good product, but could be better.',
-            'CustomerID' => 2,
+            'UserID' => 2,
             'ItemID' => 2,
             'Rating' => 3,
         ]);

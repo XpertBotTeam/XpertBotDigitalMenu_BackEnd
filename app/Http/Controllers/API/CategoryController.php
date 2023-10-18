@@ -12,7 +12,8 @@ class CategoryController extends Controller
     public function listAll()
     {
         $Category = Category::all();
-        return response()->json($Category);
+        return view('Categories')->with('Category', $Category);
+
     }
     
     public function showCategory($id)
@@ -77,6 +78,15 @@ class CategoryController extends Controller
         return response()->json(['message'=>'Category Deleted successfully']);
 
     }
+
+    public function show($CategoryID)
+    {
+        $category = Category::findOrFail($CategoryID);
+        $items = $category->items;
+    
+        return view('showitems', compact('category', 'items'));
+    }
+
 
 
 }

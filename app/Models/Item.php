@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\ItemAvailability;
-
+use Illuminate\Support\Facades\Storage;
 class Item extends Model
 {
 
@@ -20,6 +20,22 @@ class Item extends Model
         'ItemAvailability',
     ];
 
+
+    
+
+    // Use an accessor to retrieve the full image URL
+    public function getImageURLAttribute($value)
+    {
+        return asset(Storage::url($value));
+    }
+    
+
+    // Use a mutator to store the image in the storage disk.
+    public function setImageURLAttribute($value)
+    {
+        $path = Storage::putFile('app/public/images', $value); // Store the image in the 'app/admin/images' directory.
+        $this->attributes['imageURL'] = $path; // Save the path in the database.
+    }
     
     public static function boot()
     {
@@ -31,9 +47,14 @@ class Item extends Model
         });
     }
 
+    // public function category()
+    // {
+    //     return $this->belongsTo(Category::class);
+    // }
+
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'CategoryID');
     }
 
     public function orderItems()

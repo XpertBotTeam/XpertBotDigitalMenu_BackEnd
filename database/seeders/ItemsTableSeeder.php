@@ -15,7 +15,7 @@ class ItemsTableSeeder extends Seeder
             'price' => 9.99,
             'CategoryID' =>1,
             'description' => 'This is item 1 description.',
-            'imageURL' => 'item1.jpg',
+            'imageURL' => 'Untitled.jpeg',
             'ItemAvailability' => true,
         ]);
 
@@ -24,7 +24,7 @@ class ItemsTableSeeder extends Seeder
             'price' => 19.99,
             'CategoryID' =>1,
             'description' => 'This is item 2 description.',
-            'imageURL' => 'item2.jpg',
+            'imageURL' => 'Untitled.jpeg',
             'ItemAvailability' => false,
         ]);
 

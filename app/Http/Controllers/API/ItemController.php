@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\API\CategoryController;
+
 
 use function PHPUnit\Framework\isNull;
 
@@ -14,7 +16,8 @@ class ItemController extends Controller
     public function listAll()
     {
         $items = Item::all();
-        return $items;
+        return view('Items')->with('Item', $items);
+
     }
 
 
@@ -30,6 +33,7 @@ class ItemController extends Controller
 
     public function storeItem(Request $request)
     {
+
         $item = Item::where('name',$request->name)->first();
         
         if(!is_null($item))
@@ -41,7 +45,7 @@ class ItemController extends Controller
             'name'=>'required|string|max:200',
             'price'=>'required|numeric',
             'description'=>'required|string|max:400',
-            'imageURL'=>'required|string',
+            'imageURL'=>'required|image',
             'CategoryID'=>'required|exists:categories,id',
 
         ]);
@@ -54,14 +58,22 @@ class ItemController extends Controller
         $item->name = $request->name;
         $item->price = $request->price;
         $item->description = $request->description;
-        $item->imageURL = $request->imageURL;
+
+        // below wil store images in app/pubic/images
+        // $imagePath = $request->file('imageURL')->store('images'); 
+        // // $imagePath = 'images/' . $request->file('imageURL')->store('images', 'public');
+        // $item->imageURL = $imagePath; 
+        // "images\\".$request->imageURL;
+        // $item->imageURL = 'images/' . $request->name; // Store the path in the database.
         $item->CategoryID = $request->CategoryID; 
         $item->ItemAvailability = $request->ItemAvailability; 
-
-
+        $item->imageURL = 'images/'.$request->file()->getClientOriginalName();
         $item->save();
 
         return response()->json(['message'=>'Item Created successfully'],201);
+
+
+
     }
 
 

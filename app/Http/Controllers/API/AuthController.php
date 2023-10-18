@@ -18,20 +18,29 @@ class AuthController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+
+            'Fname' => 'required|string|max:255',
+            'Lname' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6',
+            'phoneNb' => 'required|string|min:6',
+            'address' => 'required|string|min:6'
         ]);
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
         }
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user = new User();        
+        $user->Fname = $request->input('Fname');
+        $user->LName = $request->input('Lname');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->phoneNb = $request->input('phoneNb');
+        $user->address = $request->input('address');
         $user->save();
+        
+
         $token = $user->createToken('authToken')->plainTextToken;
         return response()->json([
             'status'=>true,
@@ -70,7 +79,7 @@ class AuthController extends Controller
         {
             return response()->json([
                 'status'=>false,
-                'message'=>'Wrong Username or password ',
+                'message'=>'Wrong Email or password ',
             ]);
         }
     }

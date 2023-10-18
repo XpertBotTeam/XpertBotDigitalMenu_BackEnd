@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\OrderStatus;
 use App\Enums\DeliveryStatus;
-use App\Models\Customer;
+use App\Models\User;
 
 class Orders extends Model
 {
@@ -18,7 +18,7 @@ class Orders extends Model
     protected $fillable = [
         'status',
         'DeliveryInfo',
-        'CustomerID'
+        'UserID'
     ];
 
     public static function boot()
@@ -32,9 +32,9 @@ class Orders extends Model
         });
     }
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
 
     

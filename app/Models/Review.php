@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+
 
 class Review extends Model
 {
@@ -15,7 +17,7 @@ class Review extends Model
 
     protected $fillable = [
         'Comment',
-        'CustomerID',
+        'UserID',
         'ItemID',
         'Rating',
     ];
@@ -25,9 +27,9 @@ class Review extends Model
         return $this->belongsTo(Item::class);
     }
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
 
 }

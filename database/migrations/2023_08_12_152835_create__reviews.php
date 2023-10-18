@@ -12,13 +12,13 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('CustomerID')->nullable();
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->unsignedBigInteger('ItemID')->nullable();
             $table->string('Rating')->default(Rating::None);
             $table->string('Comment');
             $table->timestamps();
 
-            $table->foreign('CustomerID')->references('id')->on('customers')->nullable();
+            $table->foreign('UserID')->references('id')->on('users')->nullable();
             $table->foreign('ItemID')->references('id')->on('items')->nullable();
 
         });
