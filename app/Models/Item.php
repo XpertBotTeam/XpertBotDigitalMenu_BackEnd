@@ -23,19 +23,19 @@ class Item extends Model
 
     
 
-    // Use an accessor to retrieve the full image URL
-    public function getImageURLAttribute($value)
-    {
-        return asset(Storage::url($value));
-    }
+    // // Use an accessor to retrieve the full image URL
+    // public function getImageURLAttribute($value)
+    // {
+    //     return asset(Storage::url($value));
+    // }
     
 
-    // Use a mutator to store the image in the storage disk.
-    public function setImageURLAttribute($value)
-    {
-        $path = Storage::putFile('app/public/images', $value); // Store the image in the 'app/admin/images' directory.
-        $this->attributes['imageURL'] = $path; // Save the path in the database.
-    }
+    // // Use a mutator to store the image in the storage disk.
+    // public function setImageURLAttribute($value)
+    // {
+    //     $path = Storage::putFile('app/public/images', $value); // Store the image in the 'app/admin/images' directory.
+    //     $this->attributes['imageURL'] = $path; // Save the path in the database.
+    // }
     
     public static function boot()
     {

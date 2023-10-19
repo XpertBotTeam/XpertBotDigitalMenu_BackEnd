@@ -45,7 +45,7 @@ class ItemController extends Controller
             'name'=>'required|string|max:200',
             'price'=>'required|numeric',
             'description'=>'required|string|max:400',
-            'imageURL'=>'required|image',
+            'imageURL'=>'required|string',
             'CategoryID'=>'required|exists:categories,id',
 
         ]);
@@ -67,7 +67,8 @@ class ItemController extends Controller
         // $item->imageURL = 'images/' . $request->name; // Store the path in the database.
         $item->CategoryID = $request->CategoryID; 
         $item->ItemAvailability = $request->ItemAvailability; 
-        $item->imageURL = 'images/'.$request->file()->getClientOriginalName();
+        $item->imageURL = $request->imageURL;
+        // 'images/'.$request->file()->getClientOriginalName();
         $item->save();
 
         return response()->json(['message'=>'Item Created successfully'],201);

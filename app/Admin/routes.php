@@ -13,9 +13,9 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('items', AdminItemController::class);
-    $router->resource('categories', AdminCategoryController::class);
     $router->resource('customers', AdminCustomerController::class);
     $router->resource('orders', AdminOrdersController::class);
     $router->resource('reviews', AdminReviewController::class);
     $router->resource('admin-user-modellls', AdminUserContr::class);
+    $router->resource('categories', AdminCatController::class);
 });

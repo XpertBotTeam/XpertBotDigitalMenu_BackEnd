@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('Fname');
-            $table->string('Lname');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('phoneNb');
-            $table->string('address');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // Schema::create('customers', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('Fname');
+        //     $table->string('Lname');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     $table->string('phoneNb');
+        //     $table->string('address');
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**

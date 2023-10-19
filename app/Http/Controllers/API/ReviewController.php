@@ -32,8 +32,8 @@ class ReviewController extends Controller
     $validator = Validator::make($request->all(), [
         'rating' => 'required|integer|min:1|max:5',
         'comment' => 'required|string|max:400',
-        'CustomerID'=>'required|exists:Customers,id',
-        'ItemID'=>'required|exists:Items,id',
+        'UserID'=>'required|exists:users,id',
+        'ItemID'=>'required|exists:items,id',
 
     ]);
 
@@ -45,7 +45,7 @@ class ReviewController extends Controller
     $review->rating = $request->rating;
     $review->comment = $request->comment;
     $review->ItemID = $request->ItemID;
-    $review->CustomerID = $request->CustomerID;
+    $review->UserID = $request->UserID;
     $review->save();
 
         return response()->json(['message' => 'Review created successfully'], 201);
